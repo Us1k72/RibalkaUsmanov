@@ -1,0 +1,27 @@
+﻿<Page x:Class="FunStore.CreateAc"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FunStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="CreateAc">
+
+    <Grid  Width="1000" Height="420">
+        <Label Grid.Row="0" Content="Регистрация" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="40"  Height="57" Width="260" Margin="0,22,0,0"></Label>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"  Height="262" Width="565"   >
+            <Label Content="Введите Имя" FontSize="25"></Label>
+            <TextBox Name="tbName" Height="30"></TextBox>
+            <Label Content="Придумайте Логин" FontSize="25"></Label>
+            <TextBox Name="tbLogin" Height="30"></TextBox>
+            <Label Content="Придумайте Пароль" FontSize="25"></Label>
+            <PasswordBox  Name="tbPass" Height="30" ></PasswordBox>
+
+        </StackPanel>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left"  Click="create" Content="Создать!" Margin="339,336,0,0" Height="41" Width="141" />
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left"  Click="cancel" Content="Выйти" Margin="525,336,0,0" Height="41" Width="141" />
+
+
+    </Grid>
+</Page>

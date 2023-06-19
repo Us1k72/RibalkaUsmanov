@@ -1,0 +1,138 @@
+﻿<Page x:Class="FunStore.AdminPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FunStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="AdminPanel">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="113*"/>
+            <ColumnDefinition Width="387*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#FF74B7E2"></Grid>
+        <TabControl Grid.Column="1">
+            <TabItem Header="Игры" Width="200">
+
+                <Grid>
+                    <DataGrid Name="DGridNedviz" AutoGenerateColumns="False" IsReadOnly="True" Height="380" VerticalAlignment="Top">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding GameName}" Width="140"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Жанр" Width="150" Binding="{Binding GameJanr}" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Год Выпуска" Width="90" Binding="{Binding GameVipusk}" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Издатель" Width="*" Binding="{Binding GameIsdatel}" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Жанр" Width="*" Binding="{Binding GameJanr}" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Стоймость" Width="*" Binding="{Binding GameStoimost}" ></DataGridTextColumn>
+                            <DataGridTemplateColumn Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Редактировать" Click="NedvizEditClick"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                    <Button VerticalAlignment="Bottom"   Name="NedvizAdd" Content="Добавить"  HorizontalAlignment="Left" Click="NedvizAddClick"></Button>
+                    <Button VerticalAlignment="Bottom" Name="NedvizDel" Content="Удалить"  HorizontalAlignment="Right" Click="NedvizDelClick"></Button>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Приложения" Width="200">
+
+                <Grid>
+                    <DataGrid Name="DGridDogovor" AutoGenerateColumns="False" VerticalAlignment="Top" Height="380" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding ProgramName}" Width="*"></DataGridTextColumn>
+
+                            <DataGridTextColumn Header="Стоймость" Width="*" Binding="{Binding ProgramStoimost}" ></DataGridTextColumn>
+                            <DataGridTemplateColumn Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Редактировать"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button VerticalAlignment="Bottom" Name="DogovorAdd" Content="Добавить"  HorizontalAlignment="Left" Click="DogovorAddClick"></Button>
+                    <Button VerticalAlignment="Bottom" Name="DogovorDel" Content="Удалить"  HorizontalAlignment="Right" Click="DogovorDelClick"></Button>
+
+                </Grid>
+
+
+            </TabItem>
+            <TabItem Header="Пользователи" Width="200">
+                <Grid>
+                    <DataGrid Name="DGridUser" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Top" Height="380">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="150"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Логин" Width="150" Binding="{Binding Login}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Пароль" Width="100" Binding="{Binding Password}" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Role.Name}" ></DataGridTextColumn>
+                            <DataGridTemplateColumn Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Редактировать" Click="btnEditClick" ></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button VerticalAlignment="Bottom" Name="UserAdd" Content="Добавить"   HorizontalAlignment="Left" Click="UserAddClick"></Button>
+                    <Button VerticalAlignment="Bottom" Name="UserDel" Content="Удалить"  HorizontalAlignment="Right" Click="UserDelClick"></Button>
+                </Grid>
+
+            </TabItem>
+
+
+            <TabItem Header="Прочее" Width="170">
+                <Grid>
+                    <DataGrid Name="DGridSotrudniki" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Top" Height="380">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding NameProchhe}" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Тип товара" Binding="{Binding TypeProchee}" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Платформа" Binding="{Binding PlatformProchee}" Width="*"></DataGridTextColumn>
+
+                            <DataGridTextColumn Header="Стоймость" Width="*" Binding="{Binding StoimostProchee}" ></DataGridTextColumn>
+
+
+
+                            <DataGridTemplateColumn Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Редактировать" Click="SotrudnikiEditClick"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button VerticalAlignment="Bottom" Name="SotrudnikiAdd" Content="Добавить"  HorizontalAlignment="Left" Click="SotrudnikiAddClick" ></Button>
+                    <Button VerticalAlignment="Bottom" Name="SotrudnikiDel" Content="Удалить"  HorizontalAlignment="Right" Click="SotrudnikiDelClick" ></Button>
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Height="177" Margin="0,225,0,0">
+            <TextBlock Text="Имя:" Loaded="usName" FontSize="20" Name="UserName"></TextBlock>
+            <TextBlock></TextBlock>
+            <TextBlock Text="Логин:1" FontSize="20" Loaded="usName" Name="UserLogin"></TextBlock>
+            <TextBlock></TextBlock>
+            <TextBlock Text="Роль:Админ" FontSize="20" Loaded="usName" Name="UserRole"></TextBlock>
+            <TextBlock Text="{Binding Role.Name}"></TextBlock>
+
+        </StackPanel>
+        <Image Source="Resources/249_original.jpg" Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,21,0,0" ></Image>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="    Закрыть &#xD;&#xA;приложение" Click="ExitClick" Margin="5,0,0,3"></Button>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="    Сменить &#xD;&#xA;Пользователя" Click="noAvtorizClick" Margin="0,0,5,3"></Button>
+    </Grid>
+</Page>
